@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:10.1-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  api:
+    build: ./backend
+    command: gunicorn --env DJANGO_SETTINGS_MODULE=backend.settings_prod backend.wsgi:application --bind 0.0.0.0:8000
+    expose:
+      - 8000
+    depends_on:
+      - db
+    environment:
+      - DJANGO_SETTINGS_MODULE=backend.settings_prod
+    volumes:
+      - static_volume:/usr/src/app/staticfiles
+
+  frontend:
+    build: ./frontend
+    ports:
+      - 8001:80
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - api
+
+volumes:
+    postgres_data:
+    static_volume:

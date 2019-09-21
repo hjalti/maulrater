@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/code
+    ports:
+      - 1337:8000
+    environment:
+      - DEBUG=1
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8088:8088
+    volumes:
+      - ./frontend:/app
