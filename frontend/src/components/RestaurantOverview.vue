@@ -24,7 +24,7 @@ var sorters = [
   },
   {
     name: 'Rating',
-    sorter(list) { return _.sortBy(list, [r => -r.av_rating, 'name'])},
+    sorter(list) { return _.sortBy(list, [r => -r.av_rating, r => -r.rating_count, 'name'])},
   },
   {
     name: 'Alphabetical',
