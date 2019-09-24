@@ -78,7 +78,7 @@ export default {
     position: absolute;
 
     .item {
-      font-size: 25px;
+      font-size: 20px;
       padding: 20px 15px;
 
       &:hover {
