@@ -26,4 +26,5 @@ class Rating(models.Model):
 
     rating = models.PositiveIntegerField()
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='ratings')
+    date = models.DateTimeField(auto_now_add=True)
 

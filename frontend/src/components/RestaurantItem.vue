@@ -11,6 +11,9 @@
         :star-size="40"
         :show-rating="false"
       />
+      <div class="counter">
+        {{ restaurant.rating_count }} ratings
+      </div>
     </div>
   </div>
 </template>
@@ -34,8 +37,10 @@ export default {
 
 <style scoped lang="scss">
 .rest-item {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 30px 20px;
 
   &:hover {
@@ -44,6 +49,14 @@ export default {
 
   .name {
     font-size: 24px;
+  }
+
+  .rating {
+    .counter {
+      text-align: right;
+      padding-top: 8px;
+      padding-right: 8px;
+    }
   }
 }
 </style>

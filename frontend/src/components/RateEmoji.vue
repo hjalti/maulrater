@@ -16,9 +16,6 @@ export default {
         return c * (1 - t) + c2[i] * t
       })
     },
-    yay() {
-      console.log('wat')
-    },
   },
   computed: {
     type() {
@@ -42,6 +39,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .wrapper {
+  cursor: pointer;
   .header {
     display: flex;
     font-size: 30px;

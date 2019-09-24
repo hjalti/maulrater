@@ -21,7 +21,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - 8001:80
+      - 8000:80
 
   nginx:
     build: ./nginx
@@ -29,6 +29,8 @@ services:
       - 1337:80
     depends_on:
       - api
+    volumes:
+      - static_volume:/usr/src/app/staticfiles
 
 volumes:
     postgres_data:
